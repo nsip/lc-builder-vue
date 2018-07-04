@@ -7,5 +7,7 @@ export default {
   selectedStatements: [],
   statementsCache: {},
   selectedYearLevels: [],
-  selectedCurriculumSubjects: []
+  selectedCurriculumSubjects: [],
+  selectedResources: [],
+  selectedKeywords: []
 }

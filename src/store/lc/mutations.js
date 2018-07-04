@@ -46,3 +46,7 @@ export const updateSelectedYearLevels = (state, update) => {
 export const updateSelectedCurriculumSubjects = (state, update) => {
   state.selectedCurriculumSubjects = update
 }
+
+export const updateSelectedResources = (state, update) => {
+  state.selectedResources = update
+}

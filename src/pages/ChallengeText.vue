@@ -8,6 +8,7 @@
         <div class="col-10">
           <h5>New Learning Challenge</h5>
             <q-carousel
+              v-model="slides"
               color="white"
               arrows
               height="250px"
@@ -47,7 +48,9 @@
 export default {
   name: 'ChallengeText',
   data () {
-    return {}
+    return {
+      slides: 2
+    }
   },
   computed: {
     sting: {
