@@ -8,17 +8,19 @@
 <q-card class="bg-white" flat>
     <q-tabs no-pane-border align="justify" v-model="tabsModel" color="amber" text-color="black" inverted>
       <q-tab slot="title" name="xtab-1" icon="message" label="Curated"/>
-      <q-tab slot="title" name="xtab-2" icon="fingerprint" label="Google"/>
+      <q-tab slot="title" name="xtab-2" icon="fingerprint" label="Web"/>
     <q-tab-pane name="xtab-1">
     <q-list link separator sparse>
         <q-list-header>Results</q-list-header>
         <q-item tag="label" v-for="statement in serviceResponses" :key="statement.Url">
           <q-item-side>
             <!-- <q-icon name="vertical_split" style="font-size: 35px"/> -->
+            <q-btn round outline color="amber" icon="card_giftcard" @click="linkHandler(statement)"/>
           </q-item-side>
           <q-item-main>
-            <!-- <q-item-tile label>{{ statement.Item }}</q-item-tile> -->
+            <q-item-tile label>Aligned to: {{ statement.Statement }}</q-item-tile>
             <q-item-tile sublabel>{{ statement.Content }}</q-item-tile>
+            <!-- <q-rating/> -->
           </q-item-main>
           <q-item-side>
             <q-checkbox v-model="selectedResources" color="amber" :val="statement.Url"/>
@@ -29,17 +31,17 @@
   <q-tab-pane name="xtab-2">
     <q-list link separator sparse>
         <q-list-header>Results</q-list-header>
-        <q-item tag="label" v-for="statement in serviceResponses" :key="statement.Url">
+        <q-item tag="label" v-for="searchResult in searchResponses" :key="searchResult.displayUrl">
           <q-item-side>
-            <!-- <q-icon name="vertical_split" style="font-size: 35px"/> -->
+            <q-btn round outline color="amber" icon="card_giftcard" @click="searchLinkHandler(searchResult)"/>
           </q-item-side>
           <q-item-main>
-            <!-- <q-item-tile label>{{ statement.Item }}</q-item-tile> -->
-            <q-item-tile sublabel>{{ statement.Content }}</q-item-tile>
+            <q-item-tile label>{{ searchResult.name }}</q-item-tile>
+            <q-item-tile sublabel>{{ searchResult.snippet }}</q-item-tile>
           </q-item-main>
           <q-item-side>
             <!-- <q-checkbox v-model="selectedStatements" color="amber" :val="statement.Item"/> -->
-            <q-checkbox v-model="selectedStatements" color="amber" :val="statement.Url"/>
+            <q-checkbox v-model="selectedResources" color="amber" :val="searchResult.displayUrl"/>
           </q-item-side>
         </q-item>
     </q-list>
@@ -62,6 +64,7 @@ export default {
   data () {
     return {
       serviceResponses: [],
+      searchResponses: [],
       tabsModel: 'xtab-1'
     }
   },
@@ -111,7 +114,6 @@ export default {
         this.$store.commit('lc/updateSelectedResources', val)
       }
     }
-    // add selected resources - url for now
   },
   watch: {
     description: function (newDescription, oldDescription) {
@@ -119,12 +121,19 @@ export default {
         return
       }
       this.debouncedInvokeResourcesService()
+      this.debouncedInvokeSearchService()
     },
     selectedYearLevels: function (newYearLevels, oldYearLevels) {
       if (newYearLevels === oldYearLevels) {
         return
       }
       this.debouncedInvokeResourcesService()
+    },
+    selectedCurriculumSubjects: function (newSubjects, oldSubjects) {
+      if (newSubjects === oldSubjects) {
+        return
+      }
+      this.debouncedInvokeSearchService()
     },
     selectedStatements: function (newStatements, oldStatements) {
       var cache = this.statementsCache
@@ -150,10 +159,17 @@ export default {
   },
   created: function () {
     this.debouncedInvokeResourcesService = lodash.debounce(this.invokeResourcesService, 500)
-    // this.debouncedInvokeAlignmentService()
     this.invokeResourcesService()
+    this.debouncedInvokeSearchService = lodash.debounce(this.invokeSearchService, 500)
+    this.invokeSearchService()
   },
   methods: {
+    linkHandler: function (resource) {
+      window.open(resource.Url, '_blank')
+    },
+    searchLinkHandler: function (resource) {
+      window.open(resource.url, '_blank')
+    },
     invokeResourcesService: function () {
       axios.get('/alignservice/align', {
         params: {
@@ -164,26 +180,27 @@ export default {
       })
         .then(response => {
           var responses = response.data
-          // var i
-          // for (i = 0; i < responses.length; i++) {
-          //   // determine local/national
-          //   responses[i].isNational = false
-          //   responses[i].isLocal = false
-          //   if (responses[i].Item.includes('ACS')) {
-          //     responses[i].isNational = true
-          //   } else {
-          //     responses[i].isLocal = true
-          //   }
-          //   // inject subject / year-level until avaiable from service
-          //   var year = yrLevels[Math.floor(Math.random() * yrLevels.length)]
-          //   var subject = subjects[Math.floor(Math.random() * subjects.length)]
-          //   responses[i].yearLevel = year
-          //   responses[i].subject = subject
-          // }
-          // keep a cache of statements
-          // this.statementsCache = responses
           // add the returned statments to the local array to build ui lists
           this.serviceResponses = responses
+        })
+        .catch(e => {
+          console.log(e)
+          // this.errors.push(e)
+        })
+    },
+    invokeSearchService: function () {
+      axios.get('/alignservice/resourceSearch', {
+        params: {
+          searchTerms: this.description + ' ' + this.selectedCurriculumSubjects.join(' ')
+        }
+      })
+        .then(response => {
+          var responses = response.data
+          // add the returned statments to the local array to build ui lists
+          // console.log('SEARCH:')
+          // console.log(responses)
+          // console.log(responses.webPages.value)
+          this.searchResponses = responses.webPages.value
         })
         .catch(e => {
           console.log(e)

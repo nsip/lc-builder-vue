@@ -5,14 +5,11 @@
     <div class="row items-start">
         <div class="col">
           <ResourcesService></ResourcesService>
-          <!-- <LearningChallenge></LearningChallenge> -->
         </div>
         <div class="col-4">
-          <!-- <AlignmentService></AlignmentService> -->
-          <!-- <LearningChallenge></LearningChallenge> -->
-          <!-- <div class="q-title q-pt-lg">Challenge</div> -->
-          <!-- <ChallengeTextEditor></ChallengeTextEditor> -->
-          <div class="q-title q-pt-lg">Alignment Statements</div>
+          <div class="q-title q-pt-lg">Challenge</div>
+          <ChallengeTextEditor></ChallengeTextEditor>
+          <div class="q-title">Alignment Statements</div>
           <SelectedCurriculumStatements></SelectedCurriculumStatements>
           <div class="q-title">Year Levels</div>
           <SelectedYearLevels></SelectedYearLevels>
