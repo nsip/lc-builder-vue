@@ -37,7 +37,7 @@ module.exports = function (ctx) {
       // port: 8080,
       open: true, // opens browser window automatically
       proxy: {
-    // proxy all requests starting with /alignservice to jsonplaceholder
+    // proxy all requests starting with /alignservice to golang service
     '/alignservice': {
       target: 'http://localhost:1323',
       changeOrigin: true,
