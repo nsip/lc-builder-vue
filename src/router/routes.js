@@ -6,9 +6,9 @@ import Resources from 'pages/Resources'
 export default [
   {
     path: '/',
-    // component: () => import(Challenge),
     component: Challenge,
     children: [
+      { path: '', component: ChallengeText }, // sets the default start page
       { path: 'challengeText', component: ChallengeText },
       { path: 'alignment', component: Alignment },
       { path: 'resources', component: Resources }

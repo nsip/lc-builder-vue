@@ -9,5 +9,6 @@ export default {
   selectedYearLevels: [],
   selectedCurriculumSubjects: [],
   selectedResources: [],
-  selectedKeywords: []
+  selectedKeywords: [],
+  selectedSlide: 3
 }

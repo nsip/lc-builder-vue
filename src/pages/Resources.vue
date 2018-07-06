@@ -15,7 +15,7 @@
           <SelectedYearLevels></SelectedYearLevels>
           <div class="q-title">Learning Areas</div>
           <SelectedCurriculumSubjects></SelectedCurriculumSubjects>
-          <div class="q-title">Keywords</div>
+          <!-- <div class="q-title">Keywords</div> -->
           <div class="q-title">Resources</div>
           <SelectedResources></SelectedResources>
         </div>

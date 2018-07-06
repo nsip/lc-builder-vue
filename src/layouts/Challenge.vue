@@ -6,7 +6,7 @@
       side="left"
       v-model="leftDrawer"
       mini
-      mini-width="80px"
+      mini-width="85px"
       content-class="bg-white"
     >
       <!-- Drawer Content here -->
@@ -21,6 +21,7 @@
                 to="challengeText"
                 replace
               />
+              <div class="q-caption q-pt-sm">text</div>
             </q-item-tile>
           </q-item>
           <q-item>
@@ -33,6 +34,7 @@
                 to="alignment"
                 replace
               />
+              <div class="q-caption q-pt-sm">alignment</div>
             </q-item-tile>
           </q-item>
           <q-item>
@@ -45,6 +47,7 @@
                 to="resources"
                 replace
               />
+              <div class="q-caption q-pt-sm">resources</div>
             </q-item-tile>
           </q-item>
 
@@ -54,8 +57,6 @@
     <!--  -->
     <!-- main content area -->
     <!--  -->
-    <!-- <q-page-container class="bg-blue-5"> -->
-    <!-- <q-page-container class="bg-grey-2"> -->
     <q-page-container class="bg-white">
       <!-- This is where pages get injected -->
       <router-view />

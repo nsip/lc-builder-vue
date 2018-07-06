@@ -7,15 +7,15 @@
 
 <q-card class="bg-white" flat>
     <q-tabs no-pane-border align="justify" v-model="tabsModel" color="amber" text-color="black" inverted>
-      <q-tab slot="title" name="xtab-1" icon="message" label="Curated"/>
-      <q-tab slot="title" name="xtab-2" icon="fingerprint" label="Web"/>
+      <q-tab slot="title" name="xtab-1" icon="how_to_vote" label="Curated"/>
+      <q-tab slot="title" name="xtab-2" icon="cloud_queue" label="Web"/>
     <q-tab-pane name="xtab-1">
     <q-list link separator sparse>
         <q-list-header>Results</q-list-header>
         <q-item tag="label" v-for="statement in serviceResponses" :key="statement.Url">
           <q-item-side>
             <!-- <q-icon name="vertical_split" style="font-size: 35px"/> -->
-            <q-btn round outline color="amber" icon="card_giftcard" @click="linkHandler(statement)"/>
+            <q-btn round outline color="amber" icon="open_in_new" @click="linkHandler(statement)"/>
           </q-item-side>
           <q-item-main>
             <q-item-tile label>Aligned to: {{ statement.Statement }}</q-item-tile>
@@ -33,7 +33,7 @@
         <q-list-header>Results</q-list-header>
         <q-item tag="label" v-for="searchResult in searchResponses" :key="searchResult.displayUrl">
           <q-item-side>
-            <q-btn round outline color="amber" icon="card_giftcard" @click="searchLinkHandler(searchResult)"/>
+            <q-btn round outline color="amber" icon="open_in_new" @click="searchLinkHandler(searchResult)"/>
           </q-item-side>
           <q-item-main>
             <q-item-tile label>{{ searchResult.name }}</q-item-tile>

@@ -7,8 +7,8 @@
 
 <q-card class="bg-white" flat>
     <q-tabs no-pane-border align="justify" v-model="tabsModel" color="amber" text-color="black" inverted>
-      <q-tab slot="title" name="xtab-1" icon="message" label="National"/>
-      <q-tab slot="title" name="xtab-2" icon="fingerprint" label="Local"/>
+      <q-tab slot="title" name="xtab-1" icon="location_city" label="National"/>
+      <q-tab slot="title" name="xtab-2" icon="domain" label="Local"/>
     <q-tab-pane name="xtab-1">
     <q-list link separator sparse>
         <q-list-header>Results</q-list-header>

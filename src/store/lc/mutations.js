@@ -27,18 +27,6 @@ export const updateStatementsCache = (state, update) => {
   }
 }
 
-// export const addYearLevel = (state, update) => {
-//   if (lodash.indexOf(state.selectedYearLevels, update) === -1) {
-//     state.selectedYearLevels.push(update)
-//   }
-// }
-
-// export const addCurriculumSubject = (state, update) => {
-//   if (lodash.indexOf(state.selectedCurriculumSubjects, update) === -1) {
-//     state.selectedCurriculumSubjects.push(update)
-//   }
-// }
-
 export const updateSelectedYearLevels = (state, update) => {
   state.selectedYearLevels = update
 }
@@ -49,4 +37,8 @@ export const updateSelectedCurriculumSubjects = (state, update) => {
 
 export const updateSelectedResources = (state, update) => {
   state.selectedResources = update
+}
+
+export const updateSelectedSlide = (state, update) => {
+  state.selectedSlide = update
 }
