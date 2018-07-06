@@ -1,14 +1,13 @@
 <template>
   <q-page padding>
-  <!-- <q-page> -->
     <!-- content -->
-    <!-- <div class="layout-padding"> -->
     <div>
       <div class="row justify-center gutter-y-xl">
         <div class="col-10">
           <h5>New Learning Challenge</h5>
             <q-carousel
-              v-model="slides"
+              ref="carousel"
+              v-model="selectedSlide"
               color="white"
               arrows
               height="250px"
@@ -49,10 +48,18 @@ export default {
   name: 'ChallengeText',
   data () {
     return {
-      slides: 2
+      // slide: 2
     }
   },
   computed: {
+    selectedSlide: {
+      get () {
+        return this.$store.state.lc.selectedSlide
+      },
+      set (val) {
+        this.$store.commit('lc/updateSelectedSlide', val)
+      }
+    },
     sting: {
       get () {
         return this.$store.state.lc.lcSting
@@ -69,6 +76,11 @@ export default {
         this.$store.commit('lc/updateChallengeDescription', val)
       }
     }
+  },
+  created: function () {
+    this.$nextTick(() => {
+      this.$refs.carousel.goToSlide(this.selectedSlide)
+    })
   }
 }
 </script>

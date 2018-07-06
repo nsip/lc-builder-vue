@@ -93,7 +93,8 @@ module.exports = function (ctx) {
         'QChipsInput',
         'QCarousel',
         'QCarouselSlide',
-        'QCarouselControl'
+        'QCarouselControl',
+        'QChip'
       ],
       directives: [
         'Ripple',
