@@ -50,7 +50,75 @@
               <div class="q-caption q-pt-sm">resources</div>
             </q-item-tile>
           </q-item>
-
+          <q-item>
+            <q-item-tile>
+              <q-btn
+                disabled
+                color="amber"
+                text-color="black"
+                icon="people"
+                round
+                to="people"
+                replace
+              />
+              <div class="q-caption q-pt-sm">people</div>
+            </q-item-tile>
+          </q-item>
+          <q-item>
+            <q-item-tile>
+              <q-btn
+                disabled
+                color="amber"
+                text-color="black"
+                icon="assessment"
+                round
+                to="assessment"
+                replace
+              />
+              <div class="q-caption q-pt-sm">assessment</div>
+            </q-item-tile>
+          </q-item>
+          <q-item>
+            <q-item-tile>
+              <q-btn
+                disabled
+                color="amber"
+                text-color="black"
+                icon="timeline"
+                round
+                to="timeline"
+                replace
+              />
+              <div class="q-caption q-pt-sm">timeline</div>
+            </q-item-tile>
+          </q-item>
+          <q-item>
+            <q-item-tile>
+              <q-btn
+                disabled
+                color="amber"
+                text-color="black"
+                icon="play_arrow"
+                round
+                to="actions"
+                replace
+              />
+              <div class="q-caption q-pt-sm">actions</div>
+            </q-item-tile>
+          </q-item>
+          <q-item>
+            <q-item-tile>
+              <q-btn
+                color="amber"
+                text-color="black"
+                icon="playlist_add_check"
+                round
+                to="manifest"
+                replace
+              />
+              <div class="q-caption q-pt-sm">manifest</div>
+            </q-item-tile>
+          </q-item>
       </q-list>
     </q-layout-drawer>
 
