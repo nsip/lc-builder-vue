@@ -9,14 +9,14 @@
           :thumbnails="[
             'statics/rocks.jpg',
             'statics/physics.jpg',
-            'statics/nature.jpg',
+            'statics/nature.png',
             'statics/earth.jpg',
             'statics/chemistry.jpg'
           ]"
         >
           <q-carousel-slide img-src="statics/rocks.jpg" />
           <q-carousel-slide img-src="statics/physics.jpg" />
-          <q-carousel-slide img-src="statics/nature.jpg" />
+          <q-carousel-slide img-src="statics/nature.png" />
           <q-carousel-slide img-src="statics/earth.jpg" />
           <q-carousel-slide img-src="statics/chemistry.jpg" />
         </q-carousel>
