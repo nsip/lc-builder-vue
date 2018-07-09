@@ -55,7 +55,7 @@ import lodash from 'lodash'
 
 // dummy data to inject until available from service
 var yrLevels = ['8']
-var subjects = ['Science', 'Science Understanding', 'Science Inquiry Skills', 'Knowledge & Understanding', 'Values & Attitudes', 'Problem Solving', 'Communicating', 'Physical World', 'Earth & Space']
+// var subjects = ['Science', 'Science Understanding', 'Science Inquiry Skills', 'Knowledge & Understanding', 'Values & Attitudes', 'Problem Solving', 'Communicating', 'Physical World', 'Earth & Space']
 
 export default {
   name: 'AlignmentService',
@@ -124,7 +124,7 @@ export default {
       var i
       for (i = 0; i < newStatements.length; i++) {
         // de-dupe the list
-        var newSubj = cache[newStatements[i]].subject
+        var newSubj = cache[newStatements[i]].LearningArea
         if (lodash.indexOf(subjects, newSubj) === -1) {
           subjects.push(newSubj)
         }
@@ -164,9 +164,9 @@ export default {
             }
             // inject subject / year-level until avaiable from service
             var year = yrLevels[Math.floor(Math.random() * yrLevels.length)]
-            var subject = subjects[Math.floor(Math.random() * subjects.length)]
+            // var subject = subjects[Math.floor(Math.random() * subjects.length)]
             responses[i].yearLevel = year
-            responses[i].subject = subject
+            // responses[i].subject = subject
           }
           // keep a cache of statements
           this.statementsCache = responses
