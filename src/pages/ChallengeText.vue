@@ -5,26 +5,7 @@
       <div class="row justify-center gutter-y-xl">
         <div class="col-10">
           <h5>New Learning Challenge</h5>
-            <q-carousel
-              ref="carousel"
-              v-model="selectedSlide"
-              color="white"
-              arrows
-              height="250px"
-              :thumbnails="[
-                'statics/rocks.jpg',
-                'statics/physics.jpg',
-                'statics/nature.jpg',
-                'statics/earth.jpg',
-                'statics/chemistry.jpg'
-              ]"
-            >
-              <q-carousel-slide img-src="statics/rocks.jpg" />
-              <q-carousel-slide img-src="statics/physics.jpg" />
-              <q-carousel-slide img-src="statics/nature.jpg" />
-              <q-carousel-slide img-src="statics/earth.jpg" />
-              <q-carousel-slide img-src="statics/chemistry.jpg" />
-            </q-carousel>
+          <challengeImageChooser></challengeImageChooser>
         </div>
       </div>
       <div class="layout-padding"></div>
@@ -44,22 +25,20 @@
 </template>
 
 <script>
+
+import ChallengeImageChooser from 'components/ChallengeImageChooser.vue'
+
 export default {
   name: 'ChallengeText',
+  components: {
+    ChallengeImageChooser: ChallengeImageChooser
+  },
   data () {
     return {
       // slide: 2
     }
   },
   computed: {
-    selectedSlide: {
-      get () {
-        return this.$store.state.lc.selectedSlide
-      },
-      set (val) {
-        this.$store.commit('lc/updateSelectedSlide', val)
-      }
-    },
     sting: {
       get () {
         return this.$store.state.lc.lcSting
@@ -76,11 +55,6 @@ export default {
         this.$store.commit('lc/updateChallengeDescription', val)
       }
     }
-  },
-  created: function () {
-    this.$nextTick(() => {
-      this.$refs.carousel.goToSlide(this.selectedSlide)
-    })
   }
 }
 </script>
