@@ -10,7 +10,7 @@
     <!-- <q-card-separator /> -->
     <q-card-main>
       <!-- main conent area -->
-      <q-chips-input v-model="curriculumResources" chips-color="dark" hide-underline chips-bg-color="amber"/>
+      <q-chips-input v-model="curriculumResources" chips-color="dark" hide-underline chips-bg-color="amber" />
     </q-card-main>
   </q-card>
 </template>

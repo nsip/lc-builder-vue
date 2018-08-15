@@ -1,4 +1,6 @@
-
+<!--  -->
+<!-- summary manifest view of the challenge -->
+<!--  -->
 <template>
   <div class="row">
     <div class="col-6 q-pr-md">
@@ -58,7 +60,7 @@
           </q-item-side>
           <q-item-main>
             <q-item-tile sublabel>
-              <q-btn class="fit" align="left" flat @click="resourceLinkHandler(resource)">{{ resource }}</q-btn>
+              <q-btn class="fit" align="left" flat @click="resourceLinkHandler(resource)"><span style="text-overflow: ellipsis; overflow: hidden">{{ resource }}</span></q-btn>
             </q-item-tile>
           </q-item-main>
           <q-item-side>

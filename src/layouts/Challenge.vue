@@ -1,6 +1,8 @@
+<!--  -->
+<!-- core layout used by all pages -->
+<!--  -->
 <template>
-  <q-layout> <!-- Be sure to play with the Layout demo on docs -->
-
+  <q-layout>
     <!-- (Optional) A Drawer; you can add one more with side="right" or change this one's side -->
     <q-layout-drawer
       side="left"
