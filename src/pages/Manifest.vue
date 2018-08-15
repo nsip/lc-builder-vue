@@ -1,9 +1,12 @@
+<!--  -->
+<!-- page template for manifest display -->
+<!-- most of the work done by LcManifest component -->
 <template>
   <!-- <q-page padding> -->
   <q-page padding>
     <!-- <div class="row items-start gutter-xs"> -->
     <div class="row items-start justify-center">
-        <div class="col-10">
+        <div class="col-12">
           <LcManifest></LcManifest>
         </div>
     </div>
