@@ -1,4 +1,9 @@
 # lc-builder-vue
+
+*** DEPRECATED (RETIRED) ***
+
+*This repository is obsolete and retired (archived). This is an unmantained repository. In particular, note that it is not being updated with security patches, including those for dependent libraries.*
+
 vue.js project for the learning-challenge builder
 
 Implements the editor as an intercative web app using vue.js
